@@ -2,8 +2,9 @@
 #include <stdio.h>
 
 /**
- *factorial(int n) - factorial of a given number
- *@n given number
+ *factorial - factorial of a given number
+ *@n: the  given number
+ *Return: integer
  */
 int factorial(int n)
 {
@@ -15,5 +16,5 @@ int factorial(int n)
 	{
 		return (-1);
 	}
-	return (1 * (n*(factorial(n-1))));
+	return (1 * (n * (factorial(n - 1))));
 }
