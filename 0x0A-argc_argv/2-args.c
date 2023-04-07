@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 /*
- *main - a program that prints all arguments it receives.
+ *main-prints all arguments it receives per line, ending with a new line
  *@argc: count of the arguments supplied to the program
  *@argv: array of arguments
  *Return: zero.
