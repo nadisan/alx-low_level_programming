@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 	while (argc > 1)
 	{
 		argc--;
-		if (*argv[argc] >= '0' && *argv[argc] <= '9')
+		if (*argv[argc] >= 48 && *argv[argc] <= 57)
 		{
 			/* atoi convert a string to an int */
 			a = atoi(argv[argc]);
