@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 /**
@@ -12,7 +13,7 @@
 
 int main(int argc, char **argv)
 {
-	int a, result;
+	int a, i, len = 0, result;
 
 	result = 0;
 	if (argc == 1)
@@ -23,18 +24,21 @@ int main(int argc, char **argv)
 	while (argc > 1)
 	{
 		argc--;
-		if (*argv[argc] >= 48 && *argv[argc] <= 57)
-		{
+		len = strlen(argv[argc]);
+		for (i = 0; i < len; i++)
+			if (argv[argc][i] >= '0' && argv[argc][i] <= '9')
+			{
 			/* atoi convert a string to an int */
-			a = atoi(argv[argc]);
-			result = result + a;
-		}
-		else
-		{
-			printf("Error\n");
-			return (1);
-		}
+				a = atoi(argv[argc]);
+				result = result + a;
+			}
+			else
+			{
+				printf("Error\n");
+				return (1);
+			}
 	}
 	printf("%d\n", result);
 	return (0);
 }
+
