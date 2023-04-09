@@ -22,22 +22,24 @@ int main(int argc, char **argv)
 		return (0);
 	}
 	while (argc > 1)
+	{
+		argc--;
+		len = strlen(argv[argc]);
+		for (i = 0; i < len; i++)
 		{
-			argc--;
-			len = strlen(argv[argc]);
-			for (i = 0; i < len-1; i++)
-				if (argv[argc][i] >= '0' && argv[argc][i] <= '9')
-				{
-				/* atoi convert a string to an int */
-					a = atoi(argv[argc]);
-					result = result + a;
-				}
-				else
-				{
-					printf("Error\n");
-					return (1);
-				}
+			if (argv[argc][i] >= '0' && argv[argc][i] <= '9')
+			{
+			/* atoi convert a string to an int */
+				a = atoi(argv[argc]);
+			}
+			else
+			{
+				printf("Error\n");
+				return (1);
+			}			
 		}
+		result = result + a;
+	}
 	printf("%d\n", result);
 	return (0);
 }
