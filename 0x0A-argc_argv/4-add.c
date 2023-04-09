@@ -1,13 +1,12 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 
 
 /**
- *main -  a program that prints its name, followed by a new line
+ *main -  program that adds positive numbers.
  *@argc: count of the arguments supplied to the program
- *@argv: array of arguments
+ *@argv: pointer to  array of arguments
  *Return: zero.
  */
 
