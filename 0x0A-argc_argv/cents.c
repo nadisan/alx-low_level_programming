@@ -1,4 +1,5 @@
 #include "main.h"
+#include "100-change.c"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -38,5 +39,5 @@ int check_rem(int y)
 			check_rem(y % x[i - 1]);
 		}
 	}
-	return (0)}
+	return (0);
 }
