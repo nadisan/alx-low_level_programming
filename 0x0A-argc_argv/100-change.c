@@ -22,7 +22,7 @@ int check_rem(int y, int i)
 	{
 		if (y >= x[i])
 		{
-			if (y % x[i] <= 2)
+			if (y % x[i] <= 1)
 			{
 				z = y / x[i] + y % x[i];
 				return (z);
