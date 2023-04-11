@@ -21,22 +21,15 @@ char *str_concat(char *s1, char *s2)
 	x = strlen(s1);
 	ar = malloc((x + y) * sizeof(char) + 1);
 	
-	if (s1 == NULL)
+
+	if (s1 != NULL)
 	{
-		return (NULL);
+		for (i = 0; i <= (x); i++)
+                {
+                        ar[x] = s2[i];
+                }
 	}
-	else
-	{
-		for (; i <= (x); i++)
-		{
-			ar[i] = s1[i];
-		}	
-	}
-	if (s2 == NULL)
-	{
-		return (NULL);	
-	}
-	else
+	if (s2 != NULL)
 	{
 		for (i = 0; i <= (y); i++)
 		{
