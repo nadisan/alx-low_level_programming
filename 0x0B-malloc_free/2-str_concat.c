@@ -17,17 +17,33 @@ char *str_concat(char *s1, char *s2)
 	char *ar;
 
 	i = 0;
-	y = strlen(s2);
-	x = strlen(s1);
+	if (s1 == NULL)
+	{
+		x = 0;
+	}
+	else
+	{
+		x = strlen(s1);
+	}
+	if (s2 == NULL)
+	{
+		y = 0;
+	}
+	else
+	{
+		y = strlen(s2);
+	}
+
 	ar = malloc((x + y) * sizeof(char) + 1);
-	
+
 	if (x != 0)
 	{
 		for (i = 0; i <= (x); i++)
-                {
-                        ar[i] = s1[i];
-                }
+		{
+			ar[i] = s1[i];
+		}
 	}
+
 	if (y != 0)
 	{
 		for (i = 0; i <= (y); i++)
