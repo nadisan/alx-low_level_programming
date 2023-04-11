@@ -20,20 +20,17 @@ char *str_concat(char *s1, char *s2)
 		x = 0;
 	}
 	else
-	{
 		x = strlen(s1);
-	}
 	if (s2 == NULL)
 	{
 		y = 0;
 	}
 	else
-	{
 		y = strlen(s2);
-	}
+	
 	ar = malloc((x + y) * sizeof(char) + 1);
-
-	if (ar == NULL) {return "no malloc allocation";}
+	if (ar == NULL) 
+		return "no malloc allocation";
 	if (x != 0)
 	{
 		for (i = 0; i <= (x); i++)
