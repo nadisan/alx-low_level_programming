@@ -18,14 +18,20 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	char *s;
 
-	if (s1 == NULL)
-		s1 = "";
-	if (s1 == NULL)
+	if (s2 == NULL)
+	{
+		if (s1 == NULL)
+			return (NULL) ;
 		s2 = "";
+	}
+	if (s1 == NULL)
+	{
+		s1 = "";
+	}
 	y = strlen(s1);
-	s = malloc(sizeof(s1 + 1) + n + 1);
+	s = malloc(sizeof(s1) + n + 1);
 	if (s == NULL)
-		return ("NULL");
+		return ("\0");
 	for (i = 0 ; i < (y + n) ; i++)
 	{
 		if (i < y)
