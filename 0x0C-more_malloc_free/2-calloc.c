@@ -15,11 +15,10 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	void *arr;
 
-	arr = 0;
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	arr = malloc(size * nmemb);
+	arr = malloc(size * nmemb + 1);
 	if (arr == NULL)
 		return (NULL);
 	return (arr);
