@@ -3,16 +3,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ *mul -  program that multiplies two numbers.
+ *@num1: first number
+ *@num2: second number
+ *Return: zero.
+ */
+
+
 void *mul(char *num1, char *num2)
 {
 	int  i, x, y, n1, n2;
 	int *s;
-	
+
 	i = 0;
 	x = strlen(num1);
 	y = strlen(num2);
-	
-	for(i = 0; i < x; i++)
+
+	for (i = 0; i < x; i++)
 	{
 		if (num1[i] >= '0' && num1[i] <= '9')
 		{
@@ -24,20 +32,17 @@ void *mul(char *num1, char *num2)
 				exit(98);
 		}
 	}
-	for(i = 0; i < y; i++)
-        {
-                if (num2[i] >= '0' && num2[i] <= '9')
-		{
+	for (i = 0; i < y; i++)
+	{
+		if (num2[i] >= '0' && num2[i] <= '9')
 			n2 = atoi(num2);
-		}
 		else
-                {
-                        printf("Error\n");
-                                exit(98);
-                }
-        }
-
-	s = malloc((x*y)*sizeof(int));
+		{
+			printf("Error\n");
+			exit(98);
+		}
+	}
+	s = malloc((x * y) * sizeof(int));
 	s[0] = n1 * n2;
 	printf("%d\n", s[0]);
 	free(s);
@@ -45,7 +50,8 @@ void *mul(char *num1, char *num2)
 }
 /**
  * main - check the code
- *
+ * @argc: count of the arguments supplied to the program
+ * @argv: pointer to array of arguments
  * Return: Always 0.
  */
 int main(int argc, char **argv)
@@ -55,6 +61,6 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		exit(98);
 	}
-    mul(argv[1], argv[2]);
-    return (0);
+	mul(argv[1], argv[2]);
+	return (0);
 }
