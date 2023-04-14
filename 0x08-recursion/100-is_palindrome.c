@@ -3,39 +3,39 @@
 #include <string.h>
 
 /**
- *_sqr - natural square root value of n.
- *@n: the number to find square root of.
- *@y: natural square root value of a.
- *Return: natural number or -1 for no natural square roots.
+ *rev - checks the reverse the same as given string.
+ *@s: the given string.
+ *@x: length of the given string.
+ *@i: count starting from zero upto x.
+ *Return: 1 if true and 0 if false.
  */
 
-int _sqr(int n, int y);
+int rev(char *s, int x, int i);
 
-int recur(char *s, int x, int i)
+int rev(char *s, int x, int i)
 {
 	if (i != x)
 	{
-		if (s[i] == s[x-i])
-		{	i++;
-			recur(s, x, i);
-		}
-		else
+		i++;
+		if (s[x - i] != s[i])
 			return (0);
+		rev(s, x, i);
 	}
 	return (1);
 }
 
 /**
- *_sqrt_recursion - returns natural square root value of n.
- *@n: the number to find square root of.
+ *is_palindrome -  returns 1 if a string is a palindrome and 0 if not.
+ *@s: the given string.
  *
- *Return: natural number or -1 for no natural square roots.
+ *Return: 1 or 0.
  */
 
 int is_palindrome(char *s)
 {
-	int x;
+	int x, i;
 
+	i = 0;
 	x = strlen(s) - 1;
-	return (recur(s , x, 0));
+	return (rev(s, x, i));
 }
