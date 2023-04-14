@@ -42,7 +42,7 @@ void *mul(char *num1, char *num2)
 			exit(98);
 		}
 	}
-	s = malloc((x * y) * sizeof(int));
+	s = malloc((x + y) * sizeof(int));
 	s[0] = n1 * n2;
 	printf("%d\n", s[0]);
 	free(s);
