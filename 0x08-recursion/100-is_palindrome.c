@@ -14,14 +14,11 @@ int rev(char *s, int x, int i);
 
 int rev(char *s, int x, int i)
 {
-	if (i != x)
-	{
-		i++;
-		if (s[x - i] != s[i])
-			return (0);
-		rev(s, x, i);
-	}
-	return (1);
+	if (i >= x)
+		return (1);
+	if (s[x] == s[i])
+		return (rev(s, x - 1, i + 1));
+	return (0);
 }
 
 /**
