@@ -11,7 +11,7 @@ void print_all(const char * const format, ...)
 {
 	int i;
 
-	char *sp;
+	char *sp, *nil;
 
 	va_list list;
 
@@ -30,20 +30,17 @@ void print_all(const char * const format, ...)
 						printf("%c%s", va_arg(list, int), sp);
 						break;
 				case ('i'):
-					{
-					printf("%i%s", va_arg(list, int), sp);
-					break;
-					}
-				case ('s'):
-					{
-						printf("%s%s", va_arg(list, char *), sp);
+						printf("%i%s", va_arg(list, int), sp);
 						break;
-					}
+				case ('s'):
+						nil = va_arg(list, char *);
+						if (va_arg(list, char *) == NULL)
+							nil = "(nil)";
+						printf("%s%s", nil, sp);
+						break;
 				case ('f'):
-					{
 						printf("%f%s", va_arg(list, double), sp);
 						break;
-					}
 				default:
 						break;
 			}
