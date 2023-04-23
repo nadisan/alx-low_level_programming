@@ -25,22 +25,22 @@ void print_all(const char * const format, ...)
 			switch (format[i])
 			{
 				case ('c'):
-						printf("%s%c", sp,va_arg(list, int));
-						break;
+					printf("%s%c", sp, va_arg(list, int));
+					break;
 				case ('i'):
-						printf("%s%i", sp, va_arg(list, int));
-						break;
+					printf("%s%i", sp, va_arg(list, int));
+					break;
 				case ('s'):
-						nil = va_arg(list, char *);
-						if (!nil)
-							nil = "(nil)";
-						printf("%s%s", sp, nil);
-						break;
+					nil = va_arg(list, char *);
+					if (!nil)
+						nil = "(nil)";
+					printf("%s%s", sp, nil);
+					break;
 				case ('f'):
-						printf("%s%f", sp, va_arg(list, double));
-						break;
+					printf("%s%f", sp, va_arg(list, double));
+					break;
 				default:
-						break;
+					break;
 			}
 			i++;
 			sp = ", ";
