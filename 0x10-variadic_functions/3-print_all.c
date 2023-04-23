@@ -34,8 +34,10 @@ void print_all(const char * const format, ...)
 						break;
 				case ('s'):
 						nil = va_arg(list, char *);
-						if (va_arg(list, char *) == NULL)
+						if (!nil)
+						{
 							nil = "(nil)";
+						}
 						printf("%s%s", nil, sp);
 						break;
 				case ('f'):
