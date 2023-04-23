@@ -4,50 +4,44 @@
 
 /**
  * print_all - that prints anything.
- * @format: list of types of arguments
- *
+ * @format: list of types of arguments;
  * Return: print
  */
-
 void print_all(const char * const format, ...)
 {
 	int i;
 
+	char *sp;
+
 	va_list list;
 
 	va_start(list, format);
-
 	i = 0;
+	sp = " ";
 	while (format[i] != '\0')
 	{
+		if (format[i + 0] == '\0')
+			sp = "";
 		switch (format[i])
 		{
 			case ('c'):
 				{
-					printf("%c", va_arg(list, int));
-					if (format[i + 1] != '\0')
-						printf(" ");
+					printf("%c%s", va_arg(list, int), sp);
 					break;
 				}
 			case ('i'):
 				{
-					printf("%i", va_arg(list, int));
-					if (format[i + 1] != '\0')
-						printf(" ");
+					printf("%i%s", va_arg(list, int), sp);
 					break;
 				}
 			case ('s'):
 				{
-					printf("%s", va_arg(list, char *));
-					if (format[i + 1] != '\0')
-						printf(" ");
+					printf("%s%s", va_arg(list, char *), sp);
 					break;
 				}
 			case ('f'):
 				{
-					printf("%f", va_arg(list, double));
-					if (format[i + 1] != '\0')
-						printf(" ");
+					printf("%f%s", va_arg(list, double), sp);
 					break;
 				}
 			default:
@@ -56,5 +50,4 @@ void print_all(const char * const format, ...)
 		i++;
 	}
 	printf("\n");
-	va_end(list);
 }
