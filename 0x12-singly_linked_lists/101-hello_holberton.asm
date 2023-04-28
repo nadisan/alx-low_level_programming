@@ -1,16 +1,11 @@
 
-	hello db 'Hello, Holberton',0Ah;
+	hello: db 'Hello, Holberton',0Ah,0
 	global main
+	extern printf
 
 main:
-	;
-	mov rax, 4;
-	mov rbx, 1;
-	mov rcx, hello;
-	mov rdx, 17;
-	int 0x80;
-
-	;
-	mov eax,1;
-	xor ebx,ebx;
-	int 0x80;
+	mov edi, hello
+	xor eax,eax
+	call printf
+	mov eax,0;
+	ret;
