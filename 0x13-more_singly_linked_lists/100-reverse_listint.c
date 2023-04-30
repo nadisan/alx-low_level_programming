@@ -11,19 +11,21 @@
 
 listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *reverse = *head;
+	listint_t *reverse;
 	listint_t *node = *head;
-	listint_t *point;
 
-	if (*head)
+	if (*head != NULL && node->next != NULL)
 	{
-		*reverse->next = NULL;
-			while (node->next)
-			{	point = *reverse;
-				node = node->next;
-				*reverse = node;
-				*reverse->next = point;
-			}
+		reverse = *head;
+		reverse->next = NULL;
+		while (node->next)
+		{
+			reverse = node->next;
+			reverse->next = node;
+			node = node->next;
+		}
 	}
-	return (*reverse);
+	else
+		return (NULL);
+	return (reverse);
 }
