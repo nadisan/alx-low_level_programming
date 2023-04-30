@@ -16,16 +16,21 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	listint_t *node = *head;
 	listint_t *shuffle;
 
-	if (*head)
+	
+	if (*head == NULL && index == 0)
+		return (-1);
+	else if (*head)
 	{
-		if (index = 0)
+		if (index == 0)
 		{
 			if (node->next)
 				*head = node->next;
 			free(node);
+			return (1);
 		}
 			
 		else
+		{
 			while (i < index - 1)
 			{
 				if (node == NULL)
@@ -38,12 +43,12 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 				shuffle = node->next;
 				node->next = shuffle->next;
 				free(shuffle);
+				return (1);
 			}
 			else
-				return (-1)
+				return (-1);
 		}
 
-		return (1);
 	}
 	return (-1);
 }
