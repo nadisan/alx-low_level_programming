@@ -14,7 +14,7 @@ void free_listint2(listint_t **head)
 {
 	listint_t *node = *head;
 
-	if(node)
+	if (node)
 	{
 		free_listint2(&(node->next));
 		free(node);
