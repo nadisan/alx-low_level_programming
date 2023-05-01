@@ -19,7 +19,7 @@ size_t print_listint_safe(const listint_t *head)
 	tor = head;
 
 	if (!head)
-		return (i);
+		exit(98);
 
 	while (head)
 	{
