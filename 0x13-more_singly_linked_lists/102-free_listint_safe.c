@@ -11,43 +11,31 @@
 
 size_t free_listint_safe(listint_t **h)
 {
-	listint_t hare = *h;
-	listint_t tor = *h;
-	int i = 0;
+	listint_t *hare = *h;
+	listint_t *tor = *h;
+	int i = 0, loop;
 
-	if (!(*h) || !(h))
-		return (NULL);
-	while (hare != NULL & hare->next != NULL)
+	while (*h)
 	{
-		tor = tor->next;
-		hare = hare->next->next;
-		if (tor == hare)
+		if (!loop)
 		{
-			hare = hare->next;
-			loop = 1;
-			break;
+			while (hare != NULL && hare->next != NULL)
+			{
+				tor = tor->next;
+				hare = hare->next->next;
+				if (tor == hare)
+				{
+					hare = hare->next;
+					loop = 1;
+				}
+			}
 		}
+		else
+			tor = tor->next;
+		free(*h);
+		*h = tor;
+		i++;
 	}
-	if (loop)
-	{
-		while (head)
-		{
-			i++
-			tor = head->next
-			free(head);
-			head = tor;
-			if (head == hare)
-				break;
-		}
-	}
-	else
-		while (head)
-		{
-			i++
-			tor = head->next;
-			free(head);
-			head = tor;
-		}
-	*h = NULL
+	*h = NULL;
 	return (i);
 }
