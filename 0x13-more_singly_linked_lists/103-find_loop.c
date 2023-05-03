@@ -21,9 +21,17 @@ listint_t *find_listint_loop(listint_t *head)
 		hare = hare->next->next;
 		if (tor == hare)
 		{
-			head = hare->next;
 			break;
 		}
 	}
-	return (hare);
+	tor = head;
+	if (hare)
+	{
+		tor = tor->next;
+		hare = hare->next;
+		if (hare == tor)
+			return (hare);
+	}
+
+	return (NULL);
 }
