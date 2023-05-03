@@ -40,7 +40,6 @@ size_t print_listint_safe(const listint_t *head)
 			head = head->next;
 			if (head == hare)
 			{
-				i++;
 				printf("[%p] %i\n", (void *)head, head->n);
 				printf("->[%p] %i\n", (void *)head->next, head->next->n);
 				return (i);
