@@ -19,8 +19,6 @@ size_t print_listint_safe(const listint_t *head)
 	tor = head;
 	while (tor && hare  && hare->next)
 	{
-		if (!(hare->next->next))
-			break;
 		tor = tor->next;
 		hare = hare->next->next;
 		if (tor == hare)
