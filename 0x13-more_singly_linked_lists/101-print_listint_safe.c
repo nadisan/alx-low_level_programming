@@ -17,38 +17,37 @@ size_t print_listint_safe(const listint_t *head)
 
 	hare = head;
 	tor = head;
-	while (hare != NULL && hare->next != NULL)
-	{	tor = tor->next;
+	while (tor && hare  && hare->next)
+	{
+		if (!(hare->next->next))
+			break;
+		tor = tor->next;
 		hare = hare->next->next;
 		if (tor == hare)
 		{	loop = 1;
+			tor = tor->next;
 			break;
 		}
 	}
 	if (loop)
-	{	tor = head;
+	{
 		while (head)
 		{
-			tor = tor->next;
-			hare = hare->next;
-			if (hare->next == tor->next)
-				break;
-		}
-		while (head)
-		{	printf("[%p] %i\n", (void *)head, head->n);
 			i++;
-			head = head->next;
-			if (head == hare)
+			if (head == tor)
 			{
 				printf("[%p] %i\n", (void *)head, head->n);
 				printf("->[%p] %i\n", (void *)head->next, head->next->n);
-				return (i);
+				exit(98);
 			}
+			printf("[%p] %i\n", (void *)head, head->n);
+			head = head->next;
 		}
 	}
 	while (head)
 	{	printf("[%p] %i\n", (void *)head, head->n);
 		head = head->next;
+		i++;
 	}
 	return (i);
 }
