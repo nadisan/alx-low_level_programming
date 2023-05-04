@@ -4,7 +4,7 @@
 
 /**
  * binary_to_uint - converts a binary number to an unsigned int
- * *b: pointing to a string 
+ * @b: pointing to a string
  * Return: converted number or 0.
  */
 
@@ -15,14 +15,13 @@ unsigned int binary_to_uint(const char *b)
 	len = strlen(b);
 
 	while (len)
-	{	
-		if ( b[len - 1] == 49)
+	{
+		if (b[len - 1] == 49)
 			num += pow;
-		else if (b[len -1] != 48)
+		else if (b[len - 1] != 48)
 			return (0);
 		pow *= 2;
 		len--;
-	}				
+	}
 	return (num);
-		
 }
