@@ -14,10 +14,10 @@ void print_binary(unsigned long int n)
 	if (n == 0 || n == 1)
 		printf("%li", n);
 	else
-	{	x = n % 2;
-		n = n / 2;
-		print_binary(n);
-		printf("%i", x);
-	}
-
+		if (n)
+		{	x = n;
+			x -= (2 * (n >> 1));
+			print_binary(n >>= 1);
+			printf("%i", x);
+		}
 }
