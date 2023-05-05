@@ -10,12 +10,13 @@
 void print_binary(unsigned long int n)
 {
 	unsigned long int x = 0;
-	unsigned long int y = 1UL <<(sizeof(unsigned long int)* 8 - 1);
+	unsigned long int y = 1UL << (sizeof(unsigned long int) * 8 - 1);
 
 	while (y)
 	{
 		if (n & y)
-		{	putchar('1');
+		{
+			putchar('1');
 			x = 1;
 		}
 		else if (x)
@@ -25,7 +26,7 @@ void print_binary(unsigned long int n)
 		y >>= 1;
 	}
 
-	if(!x)
+	if (!x)
 	{
 		putchar('0');
 	}
