@@ -12,8 +12,8 @@
  * Return: actual number of letters it could read and print
  */
 ssize_t read_textfile(const char *filename, size_t letters)
-{	int c;
-	int i = letters;
+{	char c;
+	size_t i = 0;
 	FILE *file;
 
 	if (!filename || !letters)
@@ -22,13 +22,13 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	file = fopen(filename, "r");
 
-	while (i)
+	while (i < letters)
 	{
 		c = fgetc(file);
 		if (feof(file))
 			break;
-		printf("%c", c);
-		i--;
+		write(1, &c, 1);
+		i++;
 	}
 	fclose(file);
 	return (letters);
