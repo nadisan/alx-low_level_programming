@@ -14,6 +14,8 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {	char c;
 	size_t i = 0;
+	ssize_t j;
+
 	FILE *file;
 
 	if (!filename || !letters)
@@ -27,7 +29,9 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		c = fgetc(file);
 		if (feof(file))
 			break;
-		write(1, &c, 1);
+		j = write(1, &c, 1);
+		if (j == -1)
+			return (0);
 		i++;
 	}
 	fclose(file);
