@@ -24,34 +24,36 @@ void cp_file(const char *file_1, const char *file_2)
 	if (!file_1 || !file_2)
 		return;
 	fd1 = open(file_1, O_RDONLY);
-
 	if (fd1 == -1)
-	{
-		dprintf(2, "Error: Can't read from file %s.\n", file_1);
+	{	dprintf(2, "Error: Can't read from file %s\n", file_1);
 		exit(98);
 	}
 	fd2 = open(file_2, O_CREAT | O_RDWR);
 	if (fd2 == -1)
-	{
-		dprintf(2, "Error: Can't write to %s.\n", file_2);
+	{	dprintf(2, "Error: Can't write to %s\n", file_2);
 		exit(99);
 	}
 	stat(file_1, &st);
 	size = st.st_size;
 	buffer = malloc(sizeof(char) * size);
+	if (!buffer)
+		return;
 	b_read = read(fd1, buffer, size);
-	if (b_read != -1)
-	{
-		b_write = write(fd2, buffer, b_read);
-		if (b_write != -1)
-		{	close(fd1);
-			close(fd2);
-			free(buffer);
-			return;
-		}
+	if (b_read == -1)
+	{	dprintf(2, "Error: Can't read from file %s\n", file_1);
+		exit(98);
+	}
+	b_write = write(fd2, buffer, b_read);
+	if (b_write == -1)
+	{	dprintf(2, "Error: Can't write to %s\n", file_2);
+		exit(99);
 	}
 	close(fd1);
+	if (close(fd1) > 0)
+		dprintf(2, "Error: Can't close fd %i\n", fd1);
 	close(fd2);
+	if (close(fd2) > 0)
+		dprintf(2, "Error: Can't close fd %i\n", fd2);
 	free(buffer);
 }
 
