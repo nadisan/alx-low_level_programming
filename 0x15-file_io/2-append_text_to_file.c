@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
 #include <stdlib.h>
 #include "main.h"
 #include <string.h>
@@ -12,24 +14,25 @@
 
 int append_text_to_file(const char *filename, char *text_content)
 {
-	FILE *fp;
-	size_t bwrite, size;
+	int fd;
+	size_t size;
+	ssize_t bwrite;
 
 	if (filename == NULL)
 		return (-1);
-	fp = fopen(filename, "a+");
+	fd = open(filename, O_RDWR | O_APPEND);
 
-	if (fp)
+	if (fd != -1)
 	{
 		if (!text_content)
 			return (1);
 		size = sizeof(text_content);
-		bwrite = fwrite(text_content, 1, size, fp);
-		if (bwrite == size)
-		{	fclose(fp);
+		bwrite = write(fd, text_content, size);
+		if (bwrite >= 0)
+		{	close(fd);
 			return (1);
 		}
 	}
-	fclose(fp);
+	close(fd);
 	return (-1);
 }
