@@ -38,7 +38,7 @@ void cp_file(const char *file_1, const char *file_2)
 	buffer = malloc(sizeof(char) * size);
 	if (!buffer)
 		return;
-	b_read = read(fd1, buffer, 1024);
+	b_read = read(fd1, buffer, size);
 	if (b_read == -1)
 	{	dprintf(2, "Error: Can't read from file %s\n", file_1);
 		exit(98);
