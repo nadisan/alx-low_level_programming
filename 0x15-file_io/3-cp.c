@@ -28,7 +28,7 @@ void cp_file(const char *file_1, const char *file_2)
 	{	dprintf(2, "Error: Can't read from file %s\n", file_1);
 		exit(98);
 	}
-	fd2 = open(file_2, O_CREAT | O_TRUNC | O_WRONLY);
+	fd2 = open(file_2, O_CREAT | O_TRUNC | O_WRONLY, 664);
 	if (fd2 == -1)
 	{	dprintf(2, "Error: Can't write to %s\n", file_2);
 		exit(99);
