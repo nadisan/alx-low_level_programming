@@ -4,13 +4,14 @@
 #include "lists.h"
 
 /**
- * print_dlistint - print double linked listint
- * @h: double linked listint
+ * add_dnodeint - print double linked listint
+ * @head: double linked listint
+ * @n: number to be added
  * Return: number of nodes.
  */
 
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
-{       
+{
 	dlistint_t *add = NULL;
 
 	add = malloc(sizeof(dlistint_t));
