@@ -1,5 +1,6 @@
+#ifndef LISTS_H
 #define LISTS_H
-#ifdef LISTS_H
+
 
 
 /**
@@ -9,8 +10,8 @@
  * @next: points to the next node
  *
  * Description: doubly linked list node structure
- * 
  */
+
 typedef struct dlistint_s
 {
 	int n;
