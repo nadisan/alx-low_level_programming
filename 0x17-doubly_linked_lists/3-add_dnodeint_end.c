@@ -5,8 +5,9 @@
 
 /**
  * add_dnodeint_end- pointer to the new node added at start
- * head : current head if dlistint
- * Return: new head;.
+ * @head: current head if dlistint
+ * @n: number to be added
+ * Return: head of list after addition
  */
 
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
@@ -20,21 +21,22 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	new->n = n;
 	new->next = NULL;
 
-	if(temp == NULL)
+	if (temp == NULL)
+	{
 		new->prev = NULL;
-	else 
+		*head = new;
+	}
+	else
 		while (temp != NULL)
 		{
-			if(temp->next == NULL)
+			if (temp->next == NULL)
 			{
 				new->prev = temp;
 				temp->next = new;
-			        return (*head);
+				break;
 			}
 			temp = temp->next;
 		}
-
-	*head = new;
 	return (*head);
 
 }
