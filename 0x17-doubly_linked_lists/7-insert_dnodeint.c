@@ -23,41 +23,33 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	new_node->next = NULL;
 	new_node->prev = NULL;
 	new_node->n = n;
-
 	if (!new_node)
 		return (NULL);
-	if (!h || !(*h)) /* NULL DLL */
+	if ((!h || !(*h)) && idx == 0)
 		*h = new_node;
-	else /* DLL exists */
+	else
 	{
-		temp = *h;
-		/* advance to pos of idx in DLL */
 		while (idx != i++ && temp->next)
 			temp = temp->next;
 		if (temp->next)
 			new_node->prev = temp->prev;
 		else
 			new_node->prev = temp;
-		if (idx == i) /* only happens when at end of DLL */
-		{
-			temp->next = new_node;
+		if (idx == i)
+		{	temp->next = new_node;
 			new_node->prev = temp;
 		}
-		else if (idx == i - 1) /* insert at head or middle */
+		else if (idx == i - 1)
 		{
 			if (temp->prev)
 				temp->prev->next = new_node;
-			else /* head of LL */
+			else
 				*h = new_node;
 			temp->prev = new_node;
 			new_node->next = temp;
 		}
-		else /* index is out of range */
-		{
+		else
 			free(new_node);
-			return (NULL);
-		}
 	}
 	return (new_node);
-
 }
