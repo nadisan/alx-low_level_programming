@@ -40,16 +40,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	new->key = strdup(key);
 	new->value = strdup(value);
-	if (new->key == NULL)
-	{
-		free(new);
-		return(0);
-	}
-	if (new->value == NULL)
+	if (new->key == NULL || new->value == NULL)
 	{
 		free(new->key);
+		free(new->value);
 		free(new);
-		return (0);
+		return(0);
 	}
 	new->next = ht->array[i];
 	ht->array[i] = new;
