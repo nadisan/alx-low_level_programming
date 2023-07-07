@@ -12,7 +12,7 @@
 void hash_table_print(const hash_table_t *ht)
 {
 	hash_node_t *node = NULL;
-	unsigned long int i = 0, j = 0;
+	unsigned long int i = 0;
 
 	if (ht == NULL)
 		return;
@@ -26,7 +26,6 @@ void hash_table_print(const hash_table_t *ht)
 			printf(", ");
 			node = node->next;
 		}
-		printf(", ");
 		i++;
 	}
 	printf("}\n");
