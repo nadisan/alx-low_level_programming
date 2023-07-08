@@ -12,8 +12,10 @@
 shash_table_t *shash_table_create(unsigned long int size)
 {
 	shash_table_t *h = malloc(sizeof(shash_table_t));
-	/*shash_node_t *shead = NULL;
-	shash_node_t *stail = NULL;*/
+	/**
+	 * shash_node_t *shead = NULL;
+	 * shash_node_t *stail = NULL;
+	 */
 	unsigned long int i = 0;
 
 	if (h == NULL)
@@ -29,6 +31,14 @@ shash_table_t *shash_table_create(unsigned long int size)
 	}
 	return (h);
 }
+
+/**
+ * shash_table_set - insert key/value pair in sorted list
+ * @ht: the hash table
+ * @key: is the key
+ * @value: is the value
+ * Return: 1 if successful or 0 otherwise
+ */
 
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
@@ -70,61 +80,42 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	return (1);
 }
 
+/**
+ * shash_table_get - get value from key
+ * @ht: the hash table
+ * @key: is the key
+ * Return: string with key value
+ */
+
 char *shash_table_get(const shash_table_t *ht, const char *key)
 {
-	if(ht == NULL || key == NULL)
-		return NULL;
+	if (ht == NULL || key == NULL)
+		return (NULL);
 	return ((char *)key);
 }
 
+/**
+ * shash_table_print - a function that deletes a hash table
+ * @ht: the hash table
+ *
+ */
+
 void shash_table_print(const shash_table_t *ht)
 {
-	if(ht == NULL)
-                return;
-	printf("{}");
-}
-
-void shash_table_print_rev(const shash_table_t *ht)
-{
-	if(ht == NULL)
+	if (ht == NULL)
 		return;
 	printf("{}");
 }
 
 /**
- * shash_table_delete - a function that deletes a hash table
+ * shash_table_print_rev - a function that deletes a hash table
  * @ht: the hash table
  *
  */
 
-
-
-void shash_table_delete(shash_table_t *ht)
+void shash_table_print_rev(const shash_table_t *ht)
 {
-        shash_node_t *node;
-        shash_node_t *prenode;
-        unsigned long int i = 0;
-
-        if (ht == NULL)
-        {
-                free(ht);
-                return;
-        }
-        while (i < ht->size)
-        {
-                node = ht->array[i];
-                while (node)
-                {
-                        prenode = node;
-                        node = node->next;
-                        free(prenode->key);
-                        free(prenode->value);
-                        free(prenode);
-                }
-                free(node);
-                i++;
-        }
-        free(ht->array);
-        free(ht);
+	if (ht == NULL)
+		return;
+	printf("{}");
 }
-
