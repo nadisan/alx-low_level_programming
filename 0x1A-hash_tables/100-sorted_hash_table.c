@@ -69,3 +69,62 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	ht->array[i] = new;
 	return (1);
 }
+
+char *shash_table_get(const shash_table_t *ht, const char *key)
+{
+	if(ht == NULL || key == NULL)
+		return NULL;
+	return ((char *)key);
+}
+
+void shash_table_print(const shash_table_t *ht)
+{
+	if(ht == NULL)
+                return;
+	printf("{}");
+}
+
+void shash_table_print_rev(const shash_table_t *ht)
+{
+	if(ht == NULL)
+		return;
+	printf("{}");
+}
+
+/**
+ * shash_table_delete - a function that deletes a hash table
+ * @ht: the hash table
+ *
+ */
+
+
+
+void shash_table_delete(shash_table_t *ht)
+{
+        shash_node_t *node;
+        shash_node_t *prenode;
+        unsigned long int i = 0;
+
+        if (ht == NULL)
+        {
+                free(ht);
+                return;
+        }
+        while (i < ht->size)
+        {
+                node = ht->array[i];
+                while (node)
+                {
+                        prenode = node;
+                        node = node->next;
+                        free(prenode->key);
+                        free(prenode->value);
+                        free(prenode);
+                }
+                free(node);
+                i++;
+        }
+        free(ht->array);
+        free(ht);
+}
+
