@@ -25,7 +25,7 @@ int binary_search(int *array, size_t size, int value)
 			if (h == (size - 1))
 				printf("%lu\n", h);
 			else
-				printf("%lu,", h);
+				printf("%lu, ", h);
 		}
 		h = (i + size - 1)/2;
 		if (array[h] == value)
