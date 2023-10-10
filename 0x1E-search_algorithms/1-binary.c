@@ -14,7 +14,10 @@ int binary_search(int *array, size_t size, int value)
 {
 	size_t i = 0;
 	size_t h;
-	while(array && i < size)
+
+	if (!array)
+		return (-1);
+	while(i < size)
 	{
 		printf("Searching in array: ");
 		for (h = i; h < size; h++)
@@ -24,7 +27,7 @@ int binary_search(int *array, size_t size, int value)
 			else
 				printf("%lu,", h);
 		}
-		h = (i + size)/2;
+		h = (i + size - 1)/2;
 		if (array[h] == value)
 			return (h);
 		else if (value > array[h])
