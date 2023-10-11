@@ -6,6 +6,7 @@
  * jump_search - find a value in sorted array of integers w jump search
  * @array:  pointer to the first element of the array to search in
  * @size: the number of elements in array
+ * @value: the value to e searched for
  * Return: the index with the value or -1
  */
 
