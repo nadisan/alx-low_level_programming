@@ -3,7 +3,7 @@
 #include "search_algos.h"
 
 /**
- * interpolation_search - find a value in sorted array of integers w jump search
+ * interpolation_search - find a value in sorted array of integers
  * @array:  pointer to the first element of the array to search in
  * @size: the number of elements in array
  * @value: the value to e searched for
@@ -14,7 +14,7 @@ int interpolation_search(int *array, size_t size, int value)
 {
 	size_t i = 0;
 	size_t pos;
-	size_t h = size -1;
+	size_t h = size - 1;
 
 	if (array == NULL)
 		return (-1);
@@ -32,7 +32,7 @@ int interpolation_search(int *array, size_t size, int value)
 		else if (array[pos] > value)
 			h = pos - 1;
 		else
-                        i = pos + 1;
+			i = pos + 1;
 	}
 	return (-1);
 }
